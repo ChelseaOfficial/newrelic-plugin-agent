@@ -252,7 +252,7 @@ class PostgreSQL(base.Plugin):
         for row in temp:
             self.add_gauge_value('Replication/%s' % row.get('client_addr', 'Unknown'),
                                  'byte_lag',
-                                 int(row.get('byte_lag', 0)))
+                                 int(row.get('byte_lag', 0)) if row.get('byte_lag', 0) is not None else 0)
 
     def connect(self):
         """Connect to PostgreSQL, returning the connection object.
