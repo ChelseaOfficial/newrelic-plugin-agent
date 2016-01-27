@@ -26,6 +26,7 @@ class Celery(base.Plugin):
                     queue_len = int(conn.llen(queue))
                 except:
                     queue_len = 0
+                LOGGER.info('Queue/%s_%s'%(broker.get('name'),queue),queue_len)
                 self.add_gauge_value('Queue/%s_%s'%(broker.get('name'),queue), 'length', queue_len)
 
     # def add_datapoints(self, stats):
