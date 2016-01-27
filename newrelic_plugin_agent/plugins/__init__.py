@@ -5,6 +5,7 @@ being profiled.
 """
 available = {
     'apache_httpd': 'newrelic_plugin_agent.plugins.apache_httpd.ApacheHTTPD',
+    'celery': 'newrelic_plugin_agent.plugins.celery.Celery',
     'couchdb': 'newrelic_plugin_agent.plugins.couchdb.CouchDB',
     'edgecast': 'newrelic_plugin_agent.plugins.edgecast.Edgecast',
     'elasticsearch':
