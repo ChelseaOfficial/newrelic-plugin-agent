@@ -1,5 +1,5 @@
 """
-Redis plugin polls Redis for stats
+Celery plugin polls Redis for queue lengths
 
 """
 from __future__ import absolute_import
@@ -24,6 +24,6 @@ class Celery(base.Plugin):
             # run llen for each queue
             for queue in broker.get('queues', []):
                 queue_len = conn.llen(queue)
-                LOGGER.info('Queue/%s_%s: %d',broker.get('name'),queue,queue_len)
+                #LOGGER.info('Queue/%s_%s: %d',broker.get('name'),queue,queue_len)
                 self.add_gauge_value('Queue/%s_%s'%(broker.get('name'),queue), 'length', queue_len)
 
